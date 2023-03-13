@@ -1,0 +1,21 @@
+<h3 *ngIf="allowEdit === '0';else isEditable" >This server cannot be edited.</h3>
+
+<ng-template #isEditable>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span [ngStyle]="{fontSize:'1.6rem', fontWeight:'bolder'}">{{server.name}}  </span> <small>ID: {{server.id}}</small>
+    </div>
+    <div class="panel-body">
+      <p>Set Server Status</p>
+      <select class="form-control" #status >
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+        <option value="Unavailable">Unavailable</option>
+      </select>
+    </div>
+    <div class="panel-footer">
+      <button (click)="editServer()" class="btn btn-success btn-sm">Update</button>
+    </div>
+  </div>
+</ng-template>
+
